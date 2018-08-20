@@ -1,0 +1,4 @@
+create_table("anonymous_users", {timestamps: false}) {
+	t.Column("name_id", "string", {size: 16})
+	t.Column("created_at", "timestamp", {"default_raw": "now()"})
+}

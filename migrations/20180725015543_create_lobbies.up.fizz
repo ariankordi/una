@@ -1,0 +1,8 @@
+create_table("lobbies", {timestamps: false}) {
+	t.Column("name", "string", {size: 255})
+	t.Column("creator_id", "int", {null: true})
+	t.Column("anonymous_creator_id", "int", {null: true})
+	t.Column("created_at", "timestamp", {"default_raw": "now()"})
+	t.ForeignKey("creator_id", {"users": ["id"]}, {"on_delete": "cascade"})
+	t.ForeignKey("anonymous_creator_id", {"anonymous_users": ["id"]}, {"on_delete": "cascade"})
+}
